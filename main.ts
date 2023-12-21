@@ -7,12 +7,12 @@ const META_REGEX = RegExp("\{.*\}");
 export default class ObsidianPandocSyntaxHighlighter extends Plugin {
 	async onload() {
 		this.registerMarkdownPostProcessor((element, context) => {
+			console.log("Registering processor");
 			var metaBrackets = element.outerHTML.matchAll(META_REGEX);
 			for (let bracket in metaBrackets) {
 				console.log(bracket);
 			}
 		});
-
 	}
 
 	onunload() {
